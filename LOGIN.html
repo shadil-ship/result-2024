@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="icon" href="https://i.postimg.cc/qqsPbG9V/jamia-al-hind-01.png" sizes="48x48" type="image/png">
+    <style>
+        /* Styling the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .login-container span {
+            color: red;
+            font-size: 14px;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .hidden-link {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .hidden-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hidden-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="return validatePassword()">
+            <input type="password" id="password" placeholder="Enter Password" maxlength="5">
+            <span id="message"></span>
+            <input type="submit" value="Login">
+        </form>
+        <div class="hidden-link" id="hiddenLink">
+            <a href="M1B Result-2024.html">FOR RESULT</a>
+        </div>
+    </div>
+
+    <script>
+        // Error and success messages
+        const errorMsg = 'Wrong password. Please try again!';
+        const successMsg = 'Login successful!';
+        const correctPassword = '7075';
+
+        // Function to validate password
+        function validatePassword() {
+            const passwordInput = document.getElementById('password').value.trim();
+            const messageSpan = document.getElementById('message');
+            const hiddenLink = document.getElementById('hiddenLink');
+
+            if (passwordInput !== correctPassword) {
+                messageSpan.textContent = errorMsg;
+                messageSpan.classList.remove('success');
+                hiddenLink.style.display = 'none'; // Hide the link
+                return false; // Prevent form submission
+            } else {
+                messageSpan.textContent = successMsg;
+                messageSpan.classList.add('success');
+                hiddenLink.style.display = 'block'; // Show the link
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>
